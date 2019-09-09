@@ -195,6 +195,10 @@ class ConsoleIo
      */
     public function info($message = null, $newlines = 1, $level = self::NORMAL)
     {
+        if ($message === null) {
+            deprecationWarning('ConsoleIo::info() in 4.x will not allow null anymore.');
+        }
+
         $messageType = 'info';
         $message = $this->wrapMessageWithType($messageType, $message);
 
@@ -211,6 +215,10 @@ class ConsoleIo
      */
     public function warning($message = null, $newlines = 1)
     {
+        if ($message === null) {
+            deprecationWarning('ConsoleIo::warning() in 4.x will not allow null anymore.');
+        }
+
         $messageType = 'warning';
         $message = $this->wrapMessageWithType($messageType, $message);
 
@@ -227,6 +235,10 @@ class ConsoleIo
      */
     public function error($message = null, $newlines = 1)
     {
+        if ($message === null) {
+            deprecationWarning('ConsoleIo::error() in 4.x will not allow null anymore.');
+        }
+
         $messageType = 'error';
         $message = $this->wrapMessageWithType($messageType, $message);
 
@@ -244,6 +256,10 @@ class ConsoleIo
      */
     public function success($message = null, $newlines = 1, $level = self::NORMAL)
     {
+        if ($message === null) {
+            deprecationWarning('ConsoleIo::success() in 4.x will not allow null anymore.');
+        }
+
         $messageType = 'success';
         $message = $this->wrapMessageWithType($messageType, $message);
 
