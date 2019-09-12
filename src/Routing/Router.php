@@ -520,8 +520,8 @@ class Router
                 return $url;
             }
 
-            if (ctype_alnum($url[0]) && strpos($url, '::') > 0) {
-                $url = static::parseRoutePath($url) + ['plugin' => false, 'prefix' => false];
+            if ($url[0] === '@' && strpos($url, '::') > 1) {
+                $url = static::parseRoutePath(substr($url, 1)) + ['plugin' => false, 'prefix' => false];
 
                 if (is_array($full)) {
                     foreach (['plugin', 'prefix', 'controller', 'action'] as $key) {
